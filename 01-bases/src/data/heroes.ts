@@ -1,4 +1,13 @@
-const heroes = [
+export interface Hero {
+    id:number;
+    name:string;
+    owner:Owner;
+
+}
+
+export type Owner = 'DC' | 'Marvel'; // se utiliza cuando se quiere especificar un valor
+
+const heroes: Hero[] = [
     {
         id: 1,
         name: 'Batman',
@@ -27,6 +36,6 @@ const heroes = [
 ];
 
 
-export const owners = ['DC','Marvel'];
+export const owners = ['DC','Marvel'] as const;
 
 export default heroes;
