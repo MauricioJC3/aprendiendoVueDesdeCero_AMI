@@ -1,4 +1,5 @@
 import axios from "axios";
+import type { APIBasica } from "../interface/api.response";
 
 
 const conexionApiLaravel = axios.create({
@@ -6,5 +7,13 @@ const conexionApiLaravel = axios.create({
 
 });
 
-conexionApiLaravel.get('/providers').then((Response) => console.log(Response.data))
+conexionApiLaravel.get<APIBasica>('/providers')
+.then((Response) => console.log(Response.data.data))
+.catch((error) => console.log(error));
+
+conexionApiLaravel.get<APIBasica>('/products')
+.then((Response) => console.log(Response.data.data))
+.catch((error) => console.log(error));
+
+
 

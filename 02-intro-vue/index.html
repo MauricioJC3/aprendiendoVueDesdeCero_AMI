@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="myApp">
+
+        <h1>soy batman el macho alfa {{totalQuotes}}</h1>
+        <input 
+        type="text" 
+        placeholder="agregar frase"
+        @keypress.enter="addFrase"
+        >
+
+        <br>
+        <br>
+        <!--
+        formas #1
+        <button v-on:click="ocultarAuthor">mostrar author</button> 
+        <button v-on:click="mostrarAuthor = !mostrarAuthor">mostrar author</button>
+        <button @click="addFrase">add frase</button>
+        -->
+
+
+        
+        <hr>
+
+
+        <ul>
+             <!-- Se aplico desestructuracion  para traer solo los datos a utilizar -->
+            <li v-for="({ quote, author}, index) in quotes">
+                <span>{{index + 1}} - {{quote}}</span>
+                <blockquote v-if="mostrarAuthor">{{author}}</blockquote>
+            </li>
+        </ul>
+
+
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
